@@ -1,3 +1,5 @@
+#ifndef STRING_H
+#define LIST_H
 
 class String{
   protected:
@@ -7,5 +9,10 @@ class String{
     char* data_;
     
     test git
-
+  public:
+    String(const String& s) //constructeur par copie
 }
+
+
+
+#endif
