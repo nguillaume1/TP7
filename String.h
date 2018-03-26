@@ -6,4 +6,8 @@ class String{
     int length_;
     char* data_;
 
+  public:
+    
+
+
 }
