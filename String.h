@@ -10,6 +10,15 @@ class String{
   public:
   //getters:
     static int max_size();
+    int capacity();
+    
+  //methods:
+    bool empty(String* s);
 
+  
+  //destructeur:
+    ~String();
+    
+    
 
-}
+};
