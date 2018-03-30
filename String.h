@@ -1,3 +1,5 @@
+#ifndef STRING_H
+#define LIST_H
 
 class String{
   protected:
@@ -8,6 +10,7 @@ class String{
     
 
   public:
+
   //getters:
     static int max_size();
     int capacity();
@@ -15,10 +18,19 @@ class String{
   //methods:
     bool empty(String* s);
 
+    String(const String& s); //constructeur par copie
+    int size() const;
+}
+
+
   
   //destructeur:
     ~String();
     
     
 
+
 };
+
+#endif
+
