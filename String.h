@@ -11,13 +11,28 @@ class String{
   public:
     //constructeurs
     String();//constructeur par défaut
+
+  //getters:
+    static int max_size();
+    int capacity();
+    
+  //methods:
+    bool empty(String* s);
     String(const String& s); //constructeur par copie
-    
-    
+
     int size() const;
     String& operator=(const String& s);
 };
 
 
+  
+  //destructeur:
+    ~String();
+    
+    
+
+
+};
 
 #endif
+
