@@ -8,11 +8,12 @@ class String{
     int length_;
     char* data_;
     
+    test git
   public:
-  //getters:
-    static int max_size();
-
-    String(const String& s) //constructeur par copie
+    String(const String& s); //constructeur par copie
+    int size() const;
 }
+
+
 
 #endif
