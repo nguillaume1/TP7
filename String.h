@@ -9,28 +9,27 @@ class String{
     char* data_;
     
   public:
-    //constructeurs
+   //constructeurs
     String();//constructeur par défaut
+    String(const String& s); //constructeur par copie
 
   //getters:
     static int max_size();
     int capacity();
-    
-  //methods:
-    bool empty(String* s);
-    String(const String& s); //constructeur par copie
-
     int size() const;
+    
+  //methodes:
+    bool empty(String* s);
+    
+
+   //Opérateurs 
     String& operator=(const String& s);
 };
 
 
-  
   //destructeur:
     ~String();
     
-    
-
 
 };
 

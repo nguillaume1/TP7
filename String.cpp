@@ -1,15 +1,17 @@
 #include <cstdio>
 #include "String.h"
 
-
-
 //getters
 int String::capacity() {
   return capacity_;
 }
 
+int String::size() const{ //retourne la taille de la chaine de caractère
+  return length_;
+}
 
-//methods
+
+//METHODES
 bool String::empty(String* s){
   if (&s == '\0'){
     return true;
@@ -34,10 +36,6 @@ String::String(const String& s){ //constructeur par copie
   }
 } 
 
-
-int String::size() const{ //retourne la taille de la chaine de caractère
-  return length_;
-}  
 
 
 // Remplace la chaîne par une copie de la chaîne s passée en paramètre
@@ -75,7 +73,6 @@ String& String::operator=(const String& s){
 	else{
 		printf("Les deux chaînes sont identiques.\n"); 
 	}
-	
 	return *this;
 }
 
