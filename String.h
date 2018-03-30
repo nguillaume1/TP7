@@ -17,6 +17,8 @@ class String{
     static int max_size();
     int capacity();
     int size() const;
+    const char* c_str();
+    
     
   //methodes:
     bool empty(String* s);

@@ -10,6 +10,11 @@ int String::size() const{ //retourne la taille de la chaine de caractère
   return length_;
 }
 
+// Retourne un pointeur vers un tableau contenant la chaîne de caractère avec un 0 dans la dernière case
+const char* String::c_str(){
+	return data_;
+}
+
 
 //METHODES
 bool String::empty(String* s){
@@ -23,8 +28,6 @@ bool String::empty(String* s){
 
 
 //CONSTRUCTEURS
-
-
 String::String(){
 }
 
