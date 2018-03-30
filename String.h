@@ -26,8 +26,8 @@ class String{
 
    //Opérateurs 
     String& operator=(const String& s);
-};
-
+    friend String operator+(const String& , const char* );
+    
 
   //destructeur:
     ~String();

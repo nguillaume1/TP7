@@ -79,3 +79,37 @@ String& String::operator=(const String& s){
 	return *this;
 }
 
+
+
+
+
+
+//METHODES EXTERNES
+
+// Retourne un nouveau String dont la valeur correpond à la concaténation de lhs et de rhs
+String operator+(const String& lhs,const char* rhs){ 
+  
+  int sizeCounter = 0;
+  for (int i = 0 ; rhs[i] != '\0' ; i++){
+    sizeCounter ++;
+  }
+  String newString = String();
+  
+  if (lhs.size() + sizeCounter > newString.max_size()){
+    printf("Il y a trop de caractères");
+  }
+	else {
+		newString.reserve(lhs.size() + sizeCounter);
+    for(size_t i = 0; i < lhs.size(); i++){
+      newString.data_[i] = lhs.data_[i];		
+    }
+    for(size_t i = lhs.size(); i < lhs.size() + sizeCounter; i++){
+      newString.data_[i] = rhs[i-lhs.size()];		
+    }
+    newString.length_ = lhs.size() + sizeCounter;
+    newString.data_[newString.size()]='\0';
+	}	
+	return newString;
+}
+
+
