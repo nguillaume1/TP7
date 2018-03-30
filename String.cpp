@@ -1,13 +1,23 @@
 #include <cstdio>
 #include "String.h"
 
-//getters
+//Getters
 int String::capacity() {
   return capacity_;
 }
 
 int String::size() const{ //retourne la taille de la chaine de caractère
   return length_;
+}
+
+
+
+//Setters
+
+    // Efface la chaîne de caractères sans modifier la capacité
+void String::clear(){
+	length_ = 0;
+	data_[0] = '\0';
 }
 
 // Retourne un pointeur vers un tableau contenant la chaîne de caractère avec un 0 dans la dernière case
@@ -40,9 +50,9 @@ String::String(const String& s){ //constructeur par copie
 } 
 
 
+  // Remplace la chaîne par une copie de la chaîne s passée en paramètre
+  // Si *this et s correspondent au même objet, la fonction n'a pas d'effet.
 
-// Remplace la chaîne par une copie de la chaîne s passée en paramètre
-// Si *this et s correspondent au même objet, la fonction n'a pas d'effet.
 String& String::operator=(const String& s){
 
   //On commence par vérifier que les deux chaînes sont différentes

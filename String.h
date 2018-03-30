@@ -19,6 +19,8 @@ class String{
     int size() const;
     const char* c_str();
     
+  //Setters
+    void clear();
     
   //methodes:
     bool empty(String* s);
@@ -32,6 +34,7 @@ class String{
   //destructeur:
     ~String();
     
+  
 
 };
 
