@@ -1,5 +1,5 @@
 #ifndef STRING_H
-#define LIST_H
+#define STRING_H
 
 class String{
   protected:
@@ -8,11 +8,15 @@ class String{
     int length_;
     char* data_;
     
-    test git
   public:
+    //constructeurs
+    String();//constructeur par défaut
     String(const String& s); //constructeur par copie
+    
+    
     int size() const;
-}
+    String& operator=(const String& s);
+};
 
 
 

@@ -1,22 +1,23 @@
-
+#include <cstdio>
 #include "String.h"
 
 //CONSTRUCTEURS
+
+
+String::String(){
+}
 
 String::String(const String& s){ //constructeur par copie
   length_=s.size();
   data_=new char[length_];
   for (int i=0; i<length_;i++){
-    data[i]=s[i];
-  } 
-
-
-
-
+    data_[i]=s.data_[i];
+  }
+} 
 
 
 int String::size() const{ //retourne la taille de la chaine de caractère
-  return length;
+  return length_;
 }  
 
 
@@ -32,8 +33,8 @@ String& String::operator=(const String& s){
 	}
 	else{
 		int i = 0;
-		while(s.tab_[i]!= '\0'){
-			if(s.tab_[i]!=this->tab_[i]){
+		while(s.data_[i]!= '\0'){
+			if(s.data_[i]!=this->data_[i]){
 				equal = false;
 			}
 			i++;
@@ -45,17 +46,16 @@ String& String::operator=(const String& s){
 	if(equal==false){
 		length_ = s.length_;
 		capacity_ = s.capacity_;
-		delete[] tab_;
-		tab_ = new char[capacity_ + 1];
-		for(size_t i = 0; i<length_; i++){
-			tab_[i] = s.tab_[i];
+		delete[] data_;
+		data_ = new char[capacity_ + 1];
+		for(int i = 0; i<length_; i++){
+			data_[i] = s.data_[i];
 		}
 	}
 	
 	else{
 		printf("Les deux chaînes sont identiques.\n"); 
 	}
-	
 	return *this;
 }
 
