@@ -1,37 +1,128 @@
-
 #include "String.h"
 
 
-
-//getters
+//-----GETTERS---------------
 int String::capacity() {
   return capacity_;
 }
 
+int String::length(){
+  return length_;
+}
 
-//methods
-bool String::empty(String* s){
-  if (&s == '\0'){
-    return true;
-  }
-  else{
-    return false;
-  }
+const char* String::data(){
+  return data_;
 }
 
 
-//CONSTRUCTEURS
+
+//------METHODS--------------
+bool String::empty(){
+  
+  return length_ == 0; //retourne True si le tableau est vide, sinon False
+}
+
+
+void String::reserve(int new_size){
+  
+  char* new_tab;
+  new_tab = new char[new_size]; //creation du nouveau tableau
+  
+  for (int i=0; i<= length_; i++){
+    new_tab[i] = data_[i]; // remplissage du nouveau tableau avec le string
+  }
+  delete [] data_;
+  
+  data_ = new_tab;
+  capacity_ = new_size;
+}
+
+
+//----------CONSTRUCTEURS-----------
+
+//Définition du constructeur à partir d'une c-string
+String::String(char* c_string, int capacite){ 
+
+  // Calcul de la valeur de la longeur
+  int i=0;
+  while (c_string[i] != '\0'){ // Boucle pour calculer la valeur de la longeur
+    ++i;
+    length_=i;
+  }
+
+  //max_size;
+  capacity_= capacite; //Correspond à la taille du string
+  data_= c_string ;
+}
+
+
+
+//Définition de l'opérateur =(char*)
+String& String::operator= (const char* c_string){
+
+  //définition de la taille du nouveau string
+  int s = 0;
+  while(c_string[s] != '\0')
+  {
+    ++s;
+  }
+
+  length_ = s; 
+
+  //définition de la capacité
+  if(length_ >= capacity_){
+    capacity_ = length_ +1;
+  }
+
+  //creation du nouveau tableau et copie des elelements
+  char* str;
+  str = new char[capacity_];
+  for(int i = 0; i < length_; ++i){
+    str[i] = c_string[i];
+  }
+
+  str[length_] = '\0';
+  
+  
+  
+  return *this;    
+}
+
+
+//Definition de l'operateur +(string)
+String operator+(const String& lhs, const String& rhs){
+  int size = lhs.length_ + rhs.length_;
+  
+  //creation du nouveau string
+  String new_str(lhs.data_, size+1);
+
+
+  //remplissage du string avec le string de droite
+  for (int i = new_str.length_; i < size+1 ; ++i){
+    new_str.data_[i] = rhs.data_[i-lhs.length_];
+  }
+
+  //Mise a jour des longueurs
+  new_str.length_ += rhs.length_;
+  new_str.data_[new_str.length_] = '\0';
+
+  return new_str;
+}
+
+
+//---------DESTRUCTEUR-----------
+String::~String(){
+  delete [] data_;
+}
+
 
 
 String::String(const String& s){ //constructeur par copie
-  length_=s.size();
+  length_=s.length_;
   data_=new char[length_];
   for (int i=0; i<length_;i++){
     data[i]=s[i];
   } 
-
-
-
 
 
 
@@ -78,5 +169,7 @@ String& String::operator=(const String& s){
 	
 	return *this;
 }
+
+
 
 
