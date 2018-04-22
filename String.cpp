@@ -123,7 +123,7 @@ String::String(){
 
 
 
-
+/*
 //constructeur par copie
 String::String(const String& s){ 
   length_=s.length_;
@@ -135,7 +135,7 @@ String::String(const String& s){
   capacity_=s.capacity_;
   max_size_=s.max_size_;
 }
-
+*/
 //-----------------------------------------OPERATORS = ----------------------------------------------
 
 

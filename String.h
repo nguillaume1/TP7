@@ -17,13 +17,13 @@ class String{
     
   public:
 
-  //----------CONSTRUCTORS-------------
+  //----------------------------------------------CONSTRUCTORS-----------------------------------------
     String(char* c_string, int capacite ); // Constructeur à partir d'une c-string
     String();//constructeur par défaut
     String(const String& s); //constructeur par copie
 
 
-  //------------GETTERS-----------------
+  //----------------------------------------------GETTERS----------------------------------------------
     int max_size();
     int capacity();
     int length();
@@ -32,18 +32,18 @@ class String{
     
     
     
-  //-----------METHODS--------------------
+  //----------------------------------------------METHODS----------------------------------------------
     bool empty();
     int size() const;
     void reserve(int new_size);
     void resize(int n, char c = '\0'); 
   
-  //----------DESTRUCTOR------------------
+  //----------------------------------------------DESTRUCTOR-------------------------------------------
     ~String();
     
     
     
-  //----------OPERATEURS------------------
+  //----------------------------------------------OPERATEURS-------------------------------------------
     String& operator= (const char* c_string);
     String& operator=(char c);
     //String& operator=(const String& s);
@@ -51,7 +51,7 @@ class String{
     
 
     
-  //----------SETTERS---------------------
+  //----------------------------------------------SETTERS----------------------------------------------
     void clear();
     
 

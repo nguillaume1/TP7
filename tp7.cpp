@@ -47,10 +47,22 @@ int main(){
   printf ("La capacité du tableau après destruction est : %d\n", str.capacity());
   */
   
-  /*
+  
   printf("\nTEST OPERATEUR +(sting) \n");
-  String test0(str+str2);
-  printf ("Data: %s\n", test0.data()); 
+  printf ("string de gauche: %s\n", str.data()); 
+  printf ("string de droite: %s\n", str2.data()); 
+  String test0 = str+str2;
+  printf ("string additionné: %s\n", test0.data()); 
+  
+  
+  /*
+  printf("\nTEST OPERATEUR +(char*) \n");
+  String test1((char *)"chat", 7);
+  char* tableau = "chien";
+  String test2 = test1 + tableau;
+  printf ("string de gauche: %s\n", test1.data()); 
+  printf ("tableau de droite: %s\n", tableau); 
+  printf ("string additionné: %s\n", test2.data()); 
   */
   return 0;
 
