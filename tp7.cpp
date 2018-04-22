@@ -1,54 +1,58 @@
 #include "String.h"
+
 #include <stdio.h>
+#include <iostream>
 
 int main(){
 
-//Test du constructeur à partir d'une c-string
-char* tableau;
-tableau=new char[8];
-tableau="Marie";
-String str(tableau, 8);
-printf ("La longueur de Marie est : %d\n", str.length());
-printf ("La capacité du tableau est : %d\n", str.capacity());
-//printf ("La taille maximale du tableau est : %d\n", str.max_size());
-printf ("Data: %s\n", str.data()); 
-printf("\nEst ce que le sting est vide? \n 0 = Faux \n 1 = Vrai \n Réponse: %d\n", str.empty());
-
-
-/*printf("\nTEST RESERVE \n");
-printf("Capacité du tableau avant reserve: %d\n", str.capacity());
-str.reserve(20);
-printf("Capacité du tableau après reserve: %d\n", str.capacity());
-*/
-
-printf("\nTEST OPERATEUR =(char*) \n");
-char* tableau2;
-tableau2=new char[15];
-tableau2="Super Cloe";
-String str2(tableau2, 15);
-
-printf ("Data avant operateur: %s\n", str.data()); 
-str = str2;
-printf ("Data apres operateur: %s\n", str.data()); 
+  //Test du constructeur à partir d'une c-string
+  String str((char *)"Marie", 8);
+  printf ("La longueur de Marie est : %d\n", str.length());
+  printf ("La capacité du tableau est : %d\n", str.capacity());
+  //printf ("La taille maximale du tableau est : %d\n", str.max_size());
+  printf ("Data: %s\n", str.data()); 
+  printf ("Max_size:%d\n", str.max_size());
+  printf("\nEst ce que le sting est vide? \n 0 = Faux \n 1 = Vrai \n Réponse: %d\n", str.empty());
 
 
 
-printf("\nTEST OPERATEUR +(sting) \n");
-String test0(str+str2);
-printf ("Data: %s\n", test0.data()); 
+  /*
+  printf("\nTEST RESIZE \n");
+  str.resize(10,'b');
+  printf("Test resize: %s\n", str.data() );
+  */
 
+  /*
+  printf("\nTEST RESERVE \n");
+  printf("Capacité du tableau avant reserve: %d\n", str.capacity());
+  str.reserve(20);
+  printf("Capacité du tableau après reserve: %d\n", str.capacity());
+  */
 
+  printf("\nTEST OPERATEUR =(char*) \n");
+  String str2((char *)"tessssst", 15);
 
-printf("resize: %s\n", str.resize(4));
+  printf ("Data avant opération: %s\n", str.data()); 
+  str = str2;
+  printf ("Data apres opération: %s\n\n", str.data()); 
 
-//test de Hello world
-  //std::cout << "Hello World!" << std::endl;
-  //Tests
-  String test(); //test du constructeur par defaut
-  String test2(test); // test du constructeur par copie*/
+  printf("\nTEST OPERATEUR =(char) \n");
+  printf ("Data avant opération: %s\n", str.data()); 
+  str='d';
+  printf("Data après opération: %s\n", str.data());
+
+  /*
+  printf("\nTEST DESTRUCTEUR \n");
+  delete &str;
+  printf ("La capacité du tableau après destruction est : %d\n", str.capacity());
+  */
   
+  /*
+  printf("\nTEST OPERATEUR +(sting) \n");
+  String test0(str+str2);
+  printf ("Data: %s\n", test0.data()); 
+  */
   return 0;
-  
 
 }
 
